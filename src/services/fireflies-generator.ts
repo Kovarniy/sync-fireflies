@@ -2,15 +2,23 @@ import { Firefly } from '../model/firefly';
 import { settings } from '../settings';
 
 export class FirefilesGenerator {
-  private static generateParams(): number {
-    return 0;
+  private static generateParams(min: number, max: number): number {
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
   }
 
-  public static generate(): Firefly[] {
+  public static generate(width: number, height: number): Firefly[] {
     const fireflies: Firefly[] = [];
 
     for (let i = 0; i < settings.firefliesCount; i++) {
-      fireflies.push(new Firefly(1, 1, 1));
+      const x: number = this.generateParams(0, width);
+      const y: number = this.generateParams(0, height);
+      const delay: number = this.generateParams(
+        settings.delay.min,
+        settings.delay.max
+      );
+
+      fireflies.push(new Firefly(x, y, delay));
     }
 
     return fireflies;
