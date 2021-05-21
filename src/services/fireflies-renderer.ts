@@ -1,6 +1,6 @@
-import { Firefly } from '../model/firefly';
+import { Firefly } from '../model/firefly.js';
 
-export class GenerateCanvas {
+export class Canvas {
   readonly width: number;
 
   readonly height: number;
