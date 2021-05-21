@@ -1,14 +1,14 @@
-export interface IFirefile {
-  x: number;
-  y: number;
+export interface IFirefly {
+  readonly x: number;
+  readonly y: number;
   delay: number;
   blink(): void;
 }
 
-export class Firefile implements IFirefile {
-  x: number;
+export class Firefly implements IFirefly {
+  readonly x: number;
 
-  y: number;
+  readonly y: number;
 
   delay: number;
 
