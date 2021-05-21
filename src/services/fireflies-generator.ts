@@ -1,7 +1,7 @@
 import { Firefly } from '../model/firefly.js';
 import { settings } from '../settings.js';
 
-export class FirefilesGenerator {
+export class FirefliesGenerator {
   private static generateParams(min: number, max: number): number {
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);

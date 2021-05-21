@@ -1,10 +1,10 @@
 import { Firefly } from './model/firefly.js';
-import { FirefilesGenerator } from './services/fireflies-generator.js';
+import { FirefliesGenerator } from './services/fireflies-generator.js';
 import { Canvas } from './services/fireflies-renderer.js';
 import { DistanceMap } from './services/distance-map.js';
 
 const canvas: Canvas = new Canvas('canvas');
-const fireflies: Firefly[] = FirefilesGenerator.generate(
+const fireflies: Firefly[] = FirefliesGenerator.generate(
   canvas.width,
   canvas.height
 );
