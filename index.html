@@ -15,7 +15,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./dist/app.js" defer></script>
   </head>
-  <body>
-    <canvas></canvas>
+  <style>
+    canvas {
+      width: 100%;
+      height: 80%;
+      border: 2px solid black;
+    }
+  </style>
+  <body style="padding-top: 3rem">
+    <div class="container">
+      <canvas></canvas>
+    </div>
   </body>
 </html>
