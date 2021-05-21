@@ -11,3 +11,6 @@ const fireflies: Firefly[] = FirefilesGenerator.generate(
 
 canvas.render(fireflies);
 const distanceMap: DistanceMap = new DistanceMap(fireflies);
+
+// матрица смежности светлячков
+const fireflyMap: Firefly[][] = distanceMap.firefliesMap;

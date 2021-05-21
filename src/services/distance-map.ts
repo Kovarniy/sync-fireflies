@@ -1,22 +1,51 @@
 import { Firefly } from '../model/firefly.js';
+import { settings } from '../settings.js';
 
 export class DistanceMap {
-  readonly distanceMap: number[][];
+  private realDistanceMap: number[][];
+
+  readonly firefliesMap: Firefly[][];
 
   constructor(fireflies: Firefly[]) {
-    this.distanceMap = [...Array(fireflies.length)].map((x) => []);
+    console.log(fireflies);
 
-    for (let i = 0; i < fireflies.length; i++) {
-      for (let j = i + 1; j < fireflies.length; j++) {
+    this.realDistanceMap = [...Array(fireflies.length)].map((x) => []);
+    this.firefliesMap = [...Array(fireflies.length)].map((x) => []);
+
+    this.initlRDMap(fireflies);
+    console.log(this.realDistanceMap);
+
+    this.initFirefliesMap(fireflies);
+    console.log(this.firefliesMap);
+  }
+
+  private initlRDMap(fireflies: Firefly[]): void {
+    for (let i = 0; i < this.realDistanceMap.length; i++) {
+      for (let j = i + 1; j < this.realDistanceMap.length; j++) {
         const distance: number = this.calculateDistance(
           fireflies[i],
           fireflies[j]
         );
-        this.distanceMap[i][j] = distance;
-        this.distanceMap[j][i] = distance;
+
+        this.realDistanceMap[i][i] = Number.MAX_VALUE;
+        this.realDistanceMap[i][j] = distance;
+        this.realDistanceMap[j][i] = distance;
       }
     }
-    console.log(this.distanceMap);
+  }
+
+  private initFirefliesMap(fireflies: Firefly[]): void {
+    for (let i = 0; i < this.realDistanceMap.length; i++) {
+      // Проходимся по n соседним светоячкам
+      for (let j = 0; j < settings.visibleNeighborsCount; j++) {
+        const ind = this.realDistanceMap[i].indexOf(
+          Math.min.apply(null, this.realDistanceMap[i])
+        );
+
+        this.realDistanceMap[i][ind] = Number.MAX_VALUE;
+        this.firefliesMap[i][ind] = fireflies[ind];
+      }
+    }
   }
 
   private calculateDistance(fireflies1: Firefly, fireflies2: Firefly): number;
