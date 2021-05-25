@@ -11,8 +11,8 @@ export class FirefliesGenerator {
     const fireflies: Firefly[] = [];
 
     for (let i = 0; i < settings.firefliesCount; i++) {
-      const x: number = this.generateParams(0, width);
-      const y: number = this.generateParams(0, height);
+      const x: number = this.generateParams(10, width - 10);
+      const y: number = this.generateParams(10, height - 10);
       const delay: number = this.generateParams(
         settings.delay.min,
         settings.delay.max
