@@ -1,12 +1,13 @@
-export interface BasicObject {
-    readonly x: number;
-    readonly y: number;
+export interface IBasicObject {
+  readonly x: number;
+  readonly y: number;
 }
 
-export interface BlinkObject extends BasicObject {
-    alpha: number;
-    speed: number;
-    leftUntilBlink: number;
-    isBlinked: boolean;
-    blink(): void;
+export interface IBlinkObject extends IBasicObject {
+  alpha: number;
+  speed: number;
+  currentTime: number;
+  blinkCycleTime: number;
+  isBlinked: boolean;
+  blink(): void;
 }

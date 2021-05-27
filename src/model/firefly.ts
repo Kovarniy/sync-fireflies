@@ -1,26 +1,22 @@
-import { BlinkObject } from "./canvas-objects";
+import { IBlinkObject } from './canvas-objects.js';
+import { settings } from '../settings.js';
 
-export interface IFirefly extends BlinkObject {
-  delay: number;
-  leftUntilBlink: number;
-}
-
-export class Firefly implements IFirefly {
+export class Firefly implements IBlinkObject {
   readonly x: number;
   readonly y: number;
-  readonly speed: number = 0.3;
 
   isBlinked = false;
   alpha = 0;
-  leftUntilBlink: number;
+  speed: number = 0.3;
 
-  delay: number;
+  readonly blinkCycleTime: number = settings.blinkCycleTime;
+  currentTime: number;
 
-  constructor(x: number, y: number, delay: number) {
+  constructor(x: number, y: number, currentTime: number) {
     this.x = x;
     this.y = y;
-    this.delay = delay;
-    this.leftUntilBlink = delay;
+    console.log(currentTime);
+    this.currentTime = currentTime;
   }
 
   blink(): void {
@@ -36,7 +32,7 @@ export class Firefly implements IFirefly {
       this.isBlinked = false;
 
       this.alpha = 0;
-      this.leftUntilBlink = this.delay;
+      this.currentTime = 0;
     }
   }
 }

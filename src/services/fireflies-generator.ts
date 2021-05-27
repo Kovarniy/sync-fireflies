@@ -13,12 +13,12 @@ export class FirefliesGenerator {
     for (let i = 0; i < settings.firefliesCount; i++) {
       const x: number = this.generateParams(10, width - 10);
       const y: number = this.generateParams(10, height - 10);
-      const delay: number = this.generateParams(
-        settings.delay.min,
-        settings.delay.max
+      const currentTime: number = this.generateParams(
+        10,
+        settings.blinkCycleTime * 0.85
       );
 
-      fireflies.push(new Firefly(x, y, delay));
+      fireflies.push(new Firefly(x, y, currentTime));
     }
 
     return fireflies;
