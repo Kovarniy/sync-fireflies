@@ -42,14 +42,17 @@ export class Canvas {
     this.fireflyMap = distanceMap.firefliesMap;
   }
 
-  fireflySycronize(currentIdx: number): void {
-    this.fireflyMap[currentIdx].forEach((neighbour, neighbourIdx) => {
+  fireflySynchronize(currentIdx: number): void {
+    for (const [neighbourIdx, neighbour] of this.fireflyMap[currentIdx].entries()) {
       if (neighbour === true) {
-        let delta =
-          settings.blinkCycleTime - this.fireflies[neighbourIdx].currentTime;
-        // TODO: синхронизировать соседней
+        const firefly = this.fireflies[neighbourIdx];
+        // const delta = settings.blinkCycleTime - this.fireflies[neighbourIdx].currentTime;
+
+        if (firefly.currentTime >= settings.blinkCycleTime / 2) {
+          firefly.currentTime += (firefly.currentTime) * 0.01;
+        }
       }
-    });
+    }
   }
 
   animate(): void {
@@ -79,10 +82,10 @@ export class Canvas {
 
       if (firefly.currentTime >= firefly.blinkCycleTime) {
         firefly.blink();
-        this.fireflySycronize(i);
+        this.fireflySynchronize(i);
         // Скорее всего тут нужно вызывать логику, когда мы подгоняем других светлячков
       } else {
-        firefly.currentTime += firefly.speed * 10;
+        firefly.currentTime += firefly.speed * settings.globalSpeed;
       }
     }
 

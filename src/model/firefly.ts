@@ -10,13 +10,21 @@ export class Firefly implements IBlinkObject {
   speed: number = 0.3;
 
   readonly blinkCycleTime: number = settings.blinkCycleTime;
-  currentTime: number;
+  private _currentTime: number;
+
+  get currentTime() {
+    return this._currentTime;
+  }
+  set currentTime(value: number) {
+    this._currentTime = value > settings.blinkCycleTime ?
+      settings.blinkCycleTime : value;
+  }
 
   constructor(x: number, y: number, currentTime: number) {
     this.x = x;
     this.y = y;
-    console.log(currentTime);
-    this.currentTime = currentTime;
+    // console.log(currentTime);
+    this._currentTime = currentTime;
   }
 
   blink(): void {
