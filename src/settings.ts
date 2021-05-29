@@ -1,8 +1,6 @@
 export const settings = {
-  firefliesCount: 10,
+  firefliesCount: 100,
   visibleNeighborsCount: 3,
-  delay: {
-    min: 100,
-    max: 1000,
-  },
+  blinkCycleTime: 500,
+  globalSpeed: 15,
 };

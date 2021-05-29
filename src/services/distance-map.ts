@@ -4,7 +4,8 @@ import { settings } from '../settings.js';
 export class DistanceMap {
   private realDistanceMap: number[][];
 
-  readonly firefliesMap: Firefly[][];
+  // readonly firefliesMap: Firefly[][];
+  readonly firefliesMap: boolean[][];
 
   constructor(fireflies: Firefly[]) {
     console.log(fireflies);
@@ -43,7 +44,8 @@ export class DistanceMap {
         );
 
         this.realDistanceMap[i][ind] = Number.MAX_VALUE;
-        this.firefliesMap[i][ind] = fireflies[ind];
+        // this.firefliesMap[i][ind] = fireflies[ind];
+        this.firefliesMap[i][ind] = true;
       }
     }
   }
