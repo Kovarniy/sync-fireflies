@@ -12,6 +12,8 @@ export class Canvas {
   private ctx: CanvasRenderingContext2D;
   private image: HTMLImageElement;
 
+  private requestAnimationId: number = 0;
+
   constructor(selector: string) {
     const canvas = document.querySelector(selector);
     if (canvas === null)
@@ -27,8 +29,8 @@ export class Canvas {
     canvas.height = rect.height * scale;
     this.ctx.scale(scale, scale);
 
-    this.width = canvas.width;
-    this.height = canvas.height;
+    this.width = canvas.clientWidth;
+    this.height = canvas.clientHeight;
 
     this.image = new Image();
     this.image.src = './../../resources/firefly.svg';
@@ -36,7 +38,7 @@ export class Canvas {
 
   render(fireflies: Firefly[]): void {
     this.fireflies = fireflies;
-    window.requestAnimationFrame(this.animate.bind(this));
+    this.requestAnimationId = window.requestAnimationFrame(this.animate.bind(this));
     const distanceMap: DistanceMap = new DistanceMap(fireflies);
     // матрица смежности светлячков
     this.fireflyMap = distanceMap.firefliesMap;
@@ -89,6 +91,10 @@ export class Canvas {
       }
     }
 
-    window.requestAnimationFrame(this.animate.bind(this));
+    this.requestAnimationId = window.requestAnimationFrame(this.animate.bind(this));
+  }
+
+  stop(): void {
+    window.cancelAnimationFrame(this.requestAnimationId);
   }
 }
