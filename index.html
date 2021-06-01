@@ -5,26 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sync Fireflies</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css"/>
+
     <!-- Compiled and minified CSS -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    /> -->
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     <script type="module" src="./dist/app.js" defer></script>
   </head>
-  <style>
-    canvas {
-      width: 100%;
-      height: 80%;
-      border: 2px solid black;
-    }
-  </style>
-  <body style="padding-top: 3rem">
-    <div class="container">
-      <canvas></canvas>
-    </div>
+  <body>
+    <main class="main">
+      <aside class="settings">
+        <h1 class="settings__title">Синхронизация светлячков</h1>
+        <button class="button" id="regenerate-button">Сбросить</button>
+        <div class="input">
+          <label class="label" for="fireflies-counter-range">
+            Количество светлячков
+            (<span id="fireflies-counter-current"></span>)
+          </label>
+          <input id="fireflies-counter-range" type="range" min="10" max="150" step="1"/>
+        </div>
+        <div class="input">
+          <label class="label" for="neighbors-counter-range">
+            Количество соседей
+            (<span id="neighbors-counter-current"></span>)
+          </label>
+          <input id="neighbors-counter-range" type="range" min="3" max="15" step="1"/>
+        </div>
+        <div class="input">
+          <label class="label" for="cycle-counter-range">
+            Время цикла
+            (<span id="cycle-counter-current"></span>)
+          </label>
+          <input id="cycle-counter-range" type="range" min="100" max="1500" step="10"/>
+        </div>
+        <div class="input">
+          <label class="label" for="speed-counter-range">
+            Скорость
+            (<span id="speed-counter-current"></span>)
+          </label>
+          <input id="speed-counter-range" type="range" min="10" max="200" step="5"/>
+        </div>
+      </aside>
+      <canvas class="canvas"></canvas>
+    </main>
   </body>
 </html>

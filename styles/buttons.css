@@ -1,0 +1,48 @@
+.button {
+  display: inline-block;
+  position: relative;
+
+  margin-bottom: 1em;
+  padding: 10px;
+
+  font-family: inherit;
+  font-size: 1em;
+
+  outline: none;
+  background: none;
+
+  border: 1px solid var(--main-color);
+  color: #eee;
+}
+
+.button::after {
+  content: '';
+
+  display: block;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--main-color-dark);
+
+  transition: top 75ms ease-in-out, left 75ms ease-in-out;
+}
+
+.button:hover::after {
+  top: 0;
+  left: 0;
+}
+
+.button:active::after {
+  background-color: var(--main-color-active);
+}
+
+.button:focus {
+  outline: 3px solid gray;
+}
+
+.button:focus:not(:focus-visible) {
+  outline: 0;
+}

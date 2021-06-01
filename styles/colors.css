@@ -1,0 +1,5 @@
+:root {
+  --main-color: rgb(17, 240, 73);
+  --main-color-dark: rgba(17, 240, 73, .3);
+  --main-color-active: rgba(17, 240, 73, .5);
+}
