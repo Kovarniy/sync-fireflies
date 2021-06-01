@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc --watch",
+    "build": "tsc",
     "test": "editorconfig-checker --exclude '.git|node_modules'"
   },
   "author": "",
