@@ -1,5 +1,5 @@
-import { Firefly } from '../model/firefly.js';
-import { settings } from '../settings.js';
+import { Firefly } from '../model/firefly';
+import { settings } from '../settings';
 
 export class FirefliesGenerator {
   private static generateParams(min: number, max: number): number {

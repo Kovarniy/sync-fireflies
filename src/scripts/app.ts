@@ -1,8 +1,8 @@
-import { Firefly } from './model/firefly.js';
-import { FirefliesGenerator } from './services/fireflies-generator.js';
-import { Canvas } from './services/fireflies-renderer.js';
-import { PageSettings } from './services/page-settings.js';
-import run from '@jamesives/github-pages-deploy-action';
+import { Firefly } from './model/firefly';
+import { FirefliesGenerator } from './services/fireflies-generator';
+import { Canvas } from './services/fireflies-renderer';
+import { PageSettings } from './services/page-settings';
+// import run from '@jamesives/github-pages-deploy-action';
 
 export function regenerateCanvas(canvas: Canvas): void {
   canvas.stop();
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-run({
-  // token: process.env['firefly-token'],
-  branch: 'gh-pages',
-  folder: 'dist',
-  repositoryName: 'kovarniy/sync-fireflies',
-  silent: true,
-  workspace: 'src',
-  isTest: 0,
-});
+// run({
+//   // token: process.env['firefly-token'],
+//   branch: 'gh-pages',
+//   folder: 'dist',
+//   repositoryName: 'kovarniy/sync-fireflies',
+//   silent: true,
+//   workspace: 'src',
+//   isTest: 0,
+// });

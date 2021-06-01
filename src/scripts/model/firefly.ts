@@ -1,5 +1,5 @@
-import { IBlinkObject } from './canvas-objects.js';
-import { settings } from '../settings.js';
+import { IBlinkObject } from './canvas-objects';
+import { settings } from '../settings';
 
 export class Firefly implements IBlinkObject {
   readonly x: number;

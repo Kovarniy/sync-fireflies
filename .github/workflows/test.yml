@@ -2,8 +2,12 @@ name: Test
 
 on:
   pull_request:
+    branches:
+      - develop
+      - master
   push:
     branches:
+      - develop
       - master
 
 jobs:
@@ -11,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
