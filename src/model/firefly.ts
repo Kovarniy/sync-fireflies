@@ -29,9 +29,9 @@ export class Firefly implements IBlinkObject {
 
   blink(): void {
     if (this.alpha <= 1 && !this.isBlinked) {
-      this.alpha += this.speed * 0.1;
+      this.alpha += this.speed * 0.3;
     } else {
-      this.alpha -= this.speed * 0.1;
+      this.alpha -= this.speed * 0.3;
     }
 
     if (this.alpha >= 1) {
