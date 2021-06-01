@@ -1,6 +1,6 @@
-import { regenerateCanvas } from "../app.js";
-import { settings, SettingsKeys } from "../settings.js";
-import { Canvas } from "./fireflies-renderer.js";
+import { regenerateCanvas } from "../app";
+import { settings, SettingsKeys } from "../settings";
+import { Canvas } from "./fireflies-renderer";
 
 interface RangeSettings {
   baseSelector: string,
