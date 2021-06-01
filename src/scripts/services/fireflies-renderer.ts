@@ -1,6 +1,7 @@
-import { Firefly } from '../model/firefly.js';
-import { DistanceMap } from '../services/distance-map.js';
-import { settings } from '../settings.js';
+import { Firefly } from '../model/firefly';
+import { DistanceMap } from '../services/distance-map';
+import { settings } from '../settings';
+import FireflyIcon from './firefly-icon.svg';
 
 export class Canvas {
   readonly width: number;
@@ -33,7 +34,7 @@ export class Canvas {
     this.height = canvas.clientHeight;
 
     this.image = new Image();
-    this.image.src = './../../resources/firefly.svg';
+    this.image.src = FireflyIcon;
   }
 
   render(fireflies: Firefly[]): void {
