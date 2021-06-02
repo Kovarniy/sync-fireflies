@@ -1,7 +1,7 @@
 import { Firefly } from '../model/firefly';
 import { DistanceMap } from '../services/distance-map';
 import { settings } from '../settings';
-import FireflyIcon from './firefly-icon.svg';
+import FireflyIcon from '../../resources/firefly-icon.svg';
 
 export class Canvas {
   readonly width: number;
